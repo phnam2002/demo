@@ -1,9 +1,5 @@
 package com.example.demo.request;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
 public class DCDSDRequest {
 
 	private String ma;
@@ -11,6 +7,7 @@ public class DCDSDRequest {
 	private String diaChiCn;
 	private String nguoiTao;
 	private String tenDayDu;
+	private String maSoThue;
 	
 	public String getMa() {
 		return ma;
@@ -48,5 +45,4 @@ public class DCDSDRequest {
 	public void setMaSoThue(String maSoThue) {
 		this.maSoThue = maSoThue;
 	}
-	private String maSoThue;
 }

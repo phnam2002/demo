@@ -1,13 +1,8 @@
 package com.example.demo.service.impl;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Scanner;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -19,15 +14,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import com.example.demo.JDBCCall.DBConnection;
 import com.example.demo.model.DmCnDvSuDung;
 import com.example.demo.repository.DCDSudungRepository;
 import com.example.demo.request.DCDSDRequest;
 import com.example.demo.service.DCDSudungService;
-
-import oracle.jdbc.OracleTypes;
 
 @Service
  public class DCDSudungServiceImpl implements DCDSudungService {
@@ -65,7 +56,10 @@ import oracle.jdbc.OracleTypes;
 
 	@Override
 	public List<DmCnDvSuDung> findByCriteria(DCDSDRequest dCDSDRequest,Pageable pageable) {
-		Page page =  dRepo.findAll(new Specification<DmCnDvSuDung>() {
+		Page<DmCnDvSuDung> page =  dRepo.findAll(new Specification<DmCnDvSuDung>() {
+
+			private static final long serialVersionUID = 7302112543821888186L;
+
 			@Override
 			public Predicate toPredicate(Root<DmCnDvSuDung> root, CriteriaQuery<?> query,
 					CriteriaBuilder criteriaBuilder) {
